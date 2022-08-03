@@ -1,0 +1,15 @@
+C:\Users\daniel.zetterstrom\source\repos\Inventory Manager\bin\Debug\Inventory Manager.exe.config
+C:\Users\daniel.zetterstrom\source\repos\Inventory Manager\bin\Debug\Inventory Manager.exe
+C:\Users\daniel.zetterstrom\source\repos\Inventory Manager\bin\Debug\Inventory Manager.pdb
+C:\Users\daniel.zetterstrom\source\repos\Inventory Manager\obj\Debug\Inventory Manager.csproj.AssemblyReference.cache
+C:\Users\daniel.zetterstrom\source\repos\Inventory Manager\obj\Debug\Inventory Manager.csproj.SuggestedBindingRedirects.cache
+C:\Users\daniel.zetterstrom\source\repos\Inventory Manager\obj\Debug\Inventory Manager.csproj.ResolveComReference.cache
+C:\Users\daniel.zetterstrom\source\repos\Inventory Manager\obj\Debug\Inventory_Manager.formMain.resources
+C:\Users\daniel.zetterstrom\source\repos\Inventory Manager\obj\Debug\Inventory_Manager.Properties.Resources.resources
+C:\Users\daniel.zetterstrom\source\repos\Inventory Manager\obj\Debug\Inventory Manager.csproj.GenerateResource.cache
+C:\Users\daniel.zetterstrom\source\repos\Inventory Manager\obj\Debug\Inventory Manager.csproj.CoreCompileInputs.cache
+C:\Users\daniel.zetterstrom\source\repos\Inventory Manager\obj\Debug\Inventory Manager.exe
+C:\Users\daniel.zetterstrom\source\repos\Inventory Manager\obj\Debug\Inventory Manager.pdb
+C:\Users\daniel.zetterstrom\source\repos\Inventory Manager\obj\Debug\Inventory_Manager.formAdd.resources
+C:\Users\daniel.zetterstrom\source\repos\Inventory Manager\obj\Debug\Inventory_Manager.formViewItem.resources
+C:\Users\daniel.zetterstrom\source\repos\Inventory Manager\obj\Debug\Inventory_Manager.formChangeDB.resources
