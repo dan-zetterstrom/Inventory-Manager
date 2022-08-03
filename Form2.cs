@@ -75,15 +75,17 @@ namespace Inventory_Manager
                 case ("Network"):
                     return (int)idDataSet.Tables[0].Rows[2].ItemArray[0] + 1;
                 case ("Printing"):
-                    return (int)idDataSet.Tables[0].Rows[4].ItemArray[0] + 1;
-                case ("PSU"):
                     return (int)idDataSet.Tables[0].Rows[5].ItemArray[0] + 1;
-                case ("Rack"):
+                case ("PSU"):
                     return (int)idDataSet.Tables[0].Rows[6].ItemArray[0] + 1;
-                case ("Video"):
+                case ("Rack"):
                     return (int)idDataSet.Tables[0].Rows[7].ItemArray[0] + 1;
+                case ("Video"):
+                    return (int)idDataSet.Tables[0].Rows[8].ItemArray[0] + 1;
                 case ("PC Components"):
                     return (int)idDataSet.Tables[0].Rows[3].ItemArray[0] + 1;
+                case ("Phones"):
+                    return (int)idDataSet.Tables[0].Rows[4].ItemArray[0] + 1;
             }
             return 0;
         }
