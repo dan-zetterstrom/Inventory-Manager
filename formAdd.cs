@@ -15,17 +15,17 @@ namespace Inventory_Manager
     {
         public SqlConnection Connection;
         public DataSet idDataSet;
-        public formAdd()
-        {
-            InitializeComponent();
-            
-        }
+        public formMain MainForm;
 
-        public formAdd(SqlConnection connection, DataSet categoryList, DataSet idList) 
+        public formAdd(SqlConnection connection, DataSet categoryList, DataSet idList, formMain mainForm) 
         {
             InitializeComponent();
             Connection = connection;
             idDataSet = idList;
+            MainForm = mainForm;
+
+            //Populates "Categories" combo box with all elements from the supplied category dataset
+
             foreach (DataRow row in categoryList.Tables[0].Rows) 
             {
                 foreach (Object item in row.ItemArray) 
@@ -37,12 +37,14 @@ namespace Inventory_Manager
 
         private void cmdAdd_Click(object sender, EventArgs e)
         {
+            //Prepares and executes insert statement for item based on form data,
+            //provided the text field is not blank and a category is selected
 
             if (txtDescription.Text != "")
             {
                 if (cbCategories.Text != "")
                 {
-                    string insertQuery = "INSERT INTO inventoryObjects(ID, description, quantity, category) VALUES (@ID, @Description, @Quantity, @Category)";
+                    string insertQuery = "INSERT INTO [IT_Inventory].[dbo].inventoryObjects(ID, description, quantity, category, location) VALUES (@ID, @Description, @Quantity, @Category, @Location)";
                     SqlCommand cmd = new SqlCommand(insertQuery, Connection);
                     cmd.Parameters.Add("@ID", SqlDbType.Int);
                     cmd.Parameters["@ID"].Value = getNextID(cbCategories.Text);
@@ -52,7 +54,11 @@ namespace Inventory_Manager
                     cmd.Parameters["@Quantity"].Value = numQuantity.Value;
                     cmd.Parameters.Add("@Category", SqlDbType.VarChar, 255);
                     cmd.Parameters["@Category"].Value = cbCategories.Text;
+                    cmd.Parameters.Add("@Location", SqlDbType.VarChar, 255);
+                    cmd.Parameters["@Location"].Value = cbLocation.Text;
                     cmd.ExecuteNonQuery();
+                    MainForm.refreshDataGrid();
+                    MainForm.generateEvent("ADD INV ITEM", cmd.Parameters["@ID"].Value.ToString(), "Added " + txtDescription.Text + " to Closet Inventory");
                     this.Close();
                 }
                 else 
@@ -67,6 +73,7 @@ namespace Inventory_Manager
         }
 
         private int getNextID(string cat) {
+            //Given a dataset of max category IDs, it returns the next highest ID for the given category
             switch (cat) {
                 case ("Data"):
                     return (int)idDataSet.Tables[0].Rows[0].ItemArray[0] + 1;

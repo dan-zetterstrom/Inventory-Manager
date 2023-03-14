@@ -110,13 +110,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNewPass.Location = new System.Drawing.Point(99, 118);
             this.txtNewPass.Name = "txtNewPass";
+            this.txtNewPass.PasswordChar = '*';
             this.txtNewPass.Size = new System.Drawing.Size(243, 20);
             this.txtNewPass.TabIndex = 4;
             // 
             // cmdFinish
             // 
             this.cmdFinish.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdFinish.Location = new System.Drawing.Point(267, 162);
+            this.cmdFinish.Location = new System.Drawing.Point(267, 161);
             this.cmdFinish.Name = "cmdFinish";
             this.cmdFinish.Size = new System.Drawing.Size(75, 23);
             this.cmdFinish.TabIndex = 6;
@@ -127,7 +128,7 @@
             // cmdTestConnection
             // 
             this.cmdTestConnection.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.cmdTestConnection.Location = new System.Drawing.Point(15, 162);
+            this.cmdTestConnection.Location = new System.Drawing.Point(15, 161);
             this.cmdTestConnection.Name = "cmdTestConnection";
             this.cmdTestConnection.Size = new System.Drawing.Size(124, 23);
             this.cmdTestConnection.TabIndex = 5;
@@ -139,7 +140,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(365, 194);
+            this.ClientSize = new System.Drawing.Size(365, 193);
             this.Controls.Add(this.cmdTestConnection);
             this.Controls.Add(this.cmdFinish);
             this.Controls.Add(this.txtNewPass);

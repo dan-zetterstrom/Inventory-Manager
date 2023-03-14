@@ -35,6 +35,8 @@
             this.cbCategories = new System.Windows.Forms.ComboBox();
             this.numQuantity = new System.Windows.Forms.NumericUpDown();
             this.cmdAdd = new System.Windows.Forms.Button();
+            this.cbLocation = new System.Windows.Forms.ComboBox();
+            this.lblLocation = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numQuantity)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,9 +51,12 @@
             // 
             // txtDescription
             // 
+            this.txtDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDescription.Location = new System.Drawing.Point(81, 19);
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(269, 20);
+            this.txtDescription.Size = new System.Drawing.Size(357, 20);
             this.txtDescription.TabIndex = 1;
             // 
             // lblQuantity
@@ -74,15 +79,21 @@
             // 
             // cbCategories
             // 
+            this.cbCategories.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cbCategories.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCategories.FormattingEnabled = true;
             this.cbCategories.Location = new System.Drawing.Point(81, 111);
             this.cbCategories.Name = "cbCategories";
-            this.cbCategories.Size = new System.Drawing.Size(139, 21);
+            this.cbCategories.Size = new System.Drawing.Size(247, 21);
             this.cbCategories.TabIndex = 5;
             // 
             // numQuantity
             // 
+            this.numQuantity.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.numQuantity.Location = new System.Drawing.Point(81, 65);
             this.numQuantity.Minimum = new decimal(new int[] {
             1,
@@ -90,7 +101,7 @@
             0,
             0});
             this.numQuantity.Name = "numQuantity";
-            this.numQuantity.Size = new System.Drawing.Size(139, 20);
+            this.numQuantity.Size = new System.Drawing.Size(357, 20);
             this.numQuantity.TabIndex = 6;
             this.numQuantity.Value = new decimal(new int[] {
             1,
@@ -100,7 +111,8 @@
             // 
             // cmdAdd
             // 
-            this.cmdAdd.Location = new System.Drawing.Point(251, 62);
+            this.cmdAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdAdd.Location = new System.Drawing.Point(339, 107);
             this.cmdAdd.Name = "cmdAdd";
             this.cmdAdd.Size = new System.Drawing.Size(99, 70);
             this.cmdAdd.TabIndex = 7;
@@ -108,11 +120,38 @@
             this.cmdAdd.UseVisualStyleBackColor = true;
             this.cmdAdd.Click += new System.EventHandler(this.cmdAdd_Click);
             // 
+            // cbLocation
+            // 
+            this.cbLocation.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbLocation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbLocation.FormattingEnabled = true;
+            this.cbLocation.Items.AddRange(new object[] {
+            "PA",
+            "NJ",
+            "WI"});
+            this.cbLocation.Location = new System.Drawing.Point(81, 156);
+            this.cbLocation.Name = "cbLocation";
+            this.cbLocation.Size = new System.Drawing.Size(247, 21);
+            this.cbLocation.TabIndex = 9;
+            // 
+            // lblLocation
+            // 
+            this.lblLocation.AutoSize = true;
+            this.lblLocation.Location = new System.Drawing.Point(12, 159);
+            this.lblLocation.Name = "lblLocation";
+            this.lblLocation.Size = new System.Drawing.Size(51, 13);
+            this.lblLocation.TabIndex = 8;
+            this.lblLocation.Text = "Location:";
+            // 
             // formAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(376, 156);
+            this.ClientSize = new System.Drawing.Size(464, 194);
+            this.Controls.Add(this.cbLocation);
+            this.Controls.Add(this.lblLocation);
             this.Controls.Add(this.cmdAdd);
             this.Controls.Add(this.numQuantity);
             this.Controls.Add(this.cbCategories);
@@ -137,5 +176,7 @@
         private System.Windows.Forms.ComboBox cbCategories;
         private System.Windows.Forms.NumericUpDown numQuantity;
         private System.Windows.Forms.Button cmdAdd;
+        private System.Windows.Forms.ComboBox cbLocation;
+        private System.Windows.Forms.Label lblLocation;
     }
 }

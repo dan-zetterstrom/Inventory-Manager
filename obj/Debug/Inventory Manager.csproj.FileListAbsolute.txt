@@ -13,3 +13,10 @@ C:\Users\daniel.zetterstrom\source\repos\Inventory Manager\obj\Debug\Inventory M
 C:\Users\daniel.zetterstrom\source\repos\Inventory Manager\obj\Debug\Inventory_Manager.formAdd.resources
 C:\Users\daniel.zetterstrom\source\repos\Inventory Manager\obj\Debug\Inventory_Manager.formViewItem.resources
 C:\Users\daniel.zetterstrom\source\repos\Inventory Manager\obj\Debug\Inventory_Manager.formChangeDB.resources
+C:\Users\daniel.zetterstrom\source\repos\Inventory Manager\obj\Debug\Inventory_Manager.formDeviceAdd.resources
+C:\Users\daniel.zetterstrom\source\repos\Inventory Manager\obj\Debug\Inventory_Manager.formViewDevice.resources
+C:\Users\daniel.zetterstrom\source\repos\Inventory Manager\obj\Debug\Inventory_Manager.formUserAdd.resources
+C:\Users\daniel.zetterstrom\source\repos\Inventory Manager\obj\Debug\Inventory_Manager.formUserView.resources
+C:\Users\daniel.zetterstrom\source\repos\Inventory Manager\obj\Debug\Inventory_Manager.formSearch.resources
+C:\Users\daniel.zetterstrom\source\repos\Inventory Manager\obj\Debug\Inventory_Manager.formImport.resources
+C:\Users\daniel.zetterstrom\source\repos\Inventory Manager\obj\Debug\Inventory_Manager.formMapExistingUser.resources

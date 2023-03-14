@@ -117,13 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="defaultDB_IP" xml:space="preserve">
-    <value>192.168.2.76</value>
-  </data>
-  <data name="defaultDB_UN" xml:space="preserve">
-    <value>inventory</value>
-  </data>
-  <data name="defaultDB_PW" xml:space="preserve">
-    <value>1nventoryPass!</value>
-  </data>
+  <metadata name="viewUserMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>

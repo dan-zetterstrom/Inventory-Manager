@@ -39,6 +39,8 @@
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveChangesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.numQuantity = new System.Windows.Forms.NumericUpDown();
+            this.lblLocation = new System.Windows.Forms.Label();
+            this.cbLocation = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numQuantity)).BeginInit();
             this.SuspendLayout();
@@ -63,10 +65,13 @@
             // 
             // txtCategory
             // 
+            this.txtCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCategory.Enabled = false;
             this.txtCategory.Location = new System.Drawing.Point(12, 170);
             this.txtCategory.Name = "txtCategory";
-            this.txtCategory.Size = new System.Drawing.Size(311, 20);
+            this.txtCategory.Size = new System.Drawing.Size(482, 20);
             this.txtCategory.TabIndex = 5;
             // 
             // lblDescription
@@ -80,10 +85,14 @@
             // 
             // txtDescription
             // 
+            this.txtDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDescription.Location = new System.Drawing.Point(12, 92);
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(311, 20);
+            this.txtDescription.Size = new System.Drawing.Size(482, 20);
             this.txtDescription.TabIndex = 7;
+            this.txtDescription.TextChanged += new System.EventHandler(this.txtDescription_TextChanged);
             // 
             // lblID
             // 
@@ -96,10 +105,13 @@
             // 
             // txtID
             // 
+            this.txtID.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtID.Enabled = false;
             this.txtID.Location = new System.Drawing.Point(12, 53);
             this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(311, 20);
+            this.txtID.Size = new System.Drawing.Size(482, 20);
             this.txtID.TabIndex = 9;
             // 
             // menuStrip1
@@ -109,7 +121,7 @@
             this.saveChangesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(336, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(507, 24);
             this.menuStrip1.TabIndex = 11;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -129,6 +141,9 @@
             // 
             // numQuantity
             // 
+            this.numQuantity.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.numQuantity.Location = new System.Drawing.Point(12, 131);
             this.numQuantity.Maximum = new decimal(new int[] {
             100000,
@@ -141,19 +156,44 @@
             0,
             0});
             this.numQuantity.Name = "numQuantity";
-            this.numQuantity.Size = new System.Drawing.Size(311, 20);
+            this.numQuantity.Size = new System.Drawing.Size(482, 20);
             this.numQuantity.TabIndex = 12;
             this.numQuantity.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
+            this.numQuantity.ValueChanged += new System.EventHandler(this.numQuantity_ValueChanged);
+            // 
+            // lblLocation
+            // 
+            this.lblLocation.AutoSize = true;
+            this.lblLocation.Location = new System.Drawing.Point(11, 193);
+            this.lblLocation.Name = "lblLocation";
+            this.lblLocation.Size = new System.Drawing.Size(51, 13);
+            this.lblLocation.TabIndex = 13;
+            this.lblLocation.Text = "Location:";
+            // 
+            // cbLocation
+            // 
+            this.cbLocation.FormattingEnabled = true;
+            this.cbLocation.Items.AddRange(new object[] {
+            "NJ",
+            "PA",
+            "WI"});
+            this.cbLocation.Location = new System.Drawing.Point(12, 209);
+            this.cbLocation.Name = "cbLocation";
+            this.cbLocation.Size = new System.Drawing.Size(482, 21);
+            this.cbLocation.TabIndex = 14;
+            this.cbLocation.SelectedIndexChanged += new System.EventHandler(this.cbLocation_SelectedIndexChanged);
             // 
             // formViewItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(336, 212);
+            this.ClientSize = new System.Drawing.Size(507, 247);
+            this.Controls.Add(this.cbLocation);
+            this.Controls.Add(this.lblLocation);
             this.Controls.Add(this.numQuantity);
             this.Controls.Add(this.lblID);
             this.Controls.Add(this.txtID);
@@ -186,5 +226,7 @@
         private System.Windows.Forms.ToolStripMenuItem saveChangesToolStripMenuItem;
         private System.Windows.Forms.Label lblCategory;
         private System.Windows.Forms.NumericUpDown numQuantity;
+        private System.Windows.Forms.Label lblLocation;
+        private System.Windows.Forms.ComboBox cbLocation;
     }
 }

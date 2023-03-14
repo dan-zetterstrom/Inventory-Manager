@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,57 +47,124 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Device.cs" />
+    <Compile Include="formMapExistingUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="formMapExistingUser.Designer.cs">
+      <DependentUpon>formMapExistingUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form2.cs">
+    <Compile Include="InventoryItem.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="formMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <Compile Include="formMain.Designer.cs">
+      <DependentUpon>formMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form3.cs">
+    <Compile Include="formUserView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form3.Designer.cs">
-      <DependentUpon>Form3.cs</DependentUpon>
+    <Compile Include="formUserView.Designer.cs">
+      <DependentUpon>formUserView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form5.cs">
+    <Compile Include="formSearch.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form5.Designer.cs">
-      <DependentUpon>Form5.cs</DependentUpon>
+    <Compile Include="formSearch.Designer.cs">
+      <DependentUpon>formSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formAdd.Designer.cs">
+      <DependentUpon>formAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formViewItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formViewItem.Designer.cs">
+      <DependentUpon>formViewItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formChangeDB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formChangeDB.Designer.cs">
+      <DependentUpon>formChangeDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formImport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formImport.Designer.cs">
+      <DependentUpon>formImport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formDeviceAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formDeviceAdd.Designer.cs">
+      <DependentUpon>formDeviceAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formViewDevice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formViewDevice.Designer.cs">
+      <DependentUpon>formViewDevice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formUserAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formUserAdd.Designer.cs">
+      <DependentUpon>formUserAdd.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="formMain.resx">
+      <DependentUpon>formMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <EmbeddedResource Include="formMapExistingUser.resx">
+      <DependentUpon>formMapExistingUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form3.resx">
-      <DependentUpon>Form3.cs</DependentUpon>
+    <EmbeddedResource Include="formUserView.resx">
+      <DependentUpon>formUserView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form5.resx">
-      <DependentUpon>Form5.cs</DependentUpon>
+    <EmbeddedResource Include="formSearch.resx">
+      <DependentUpon>formSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formAdd.resx">
+      <DependentUpon>formAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formViewItem.resx">
+      <DependentUpon>formViewItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formChangeDB.resx">
+      <DependentUpon>formChangeDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formImport.resx">
+      <DependentUpon>formImport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formDeviceAdd.resx">
+      <DependentUpon>formDeviceAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formViewDevice.resx">
+      <DependentUpon>formViewDevice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formUserAdd.resx">
+      <DependentUpon>formUserAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
