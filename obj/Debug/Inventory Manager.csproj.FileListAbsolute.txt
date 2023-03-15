@@ -20,3 +20,4 @@ C:\Users\daniel.zetterstrom\source\repos\Inventory Manager\obj\Debug\Inventory_M
 C:\Users\daniel.zetterstrom\source\repos\Inventory Manager\obj\Debug\Inventory_Manager.formSearch.resources
 C:\Users\daniel.zetterstrom\source\repos\Inventory Manager\obj\Debug\Inventory_Manager.formImport.resources
 C:\Users\daniel.zetterstrom\source\repos\Inventory Manager\obj\Debug\Inventory_Manager.formMapExistingUser.resources
+C:\Users\daniel.zetterstrom\source\repos\Inventory Manager\obj\Debug\Inventory_Manager.formCatSNAddDelete.resources

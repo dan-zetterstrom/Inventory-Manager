@@ -45,7 +45,10 @@ namespace Inventory_Manager
             {
                 foreach (Object item in row.ItemArray)
                 {
-                    cb.Items.Add(item.ToString());
+                    if (!inComboBox(cb, item.ToString()))
+                    {
+                        cb.Items.Add(item.ToString());
+                    }
                 }
             }
         }
@@ -69,7 +72,7 @@ namespace Inventory_Manager
         {
             //Sanatizes user inputs to avoid any and all
             //tomfoolery, shenanigans, and brouhaha (that's the correct spelling, I checked)
-            string insertQuery = "INSERT INTO [IT_Inventory].[dbo].devices(SN, SN_Type, hostName, make, model, category, assignedTo, status, serviceStartDate) VALUES (@SN, @Type, @hostName, @make, @model, @category, '0', 'Active', '" + dtStartDate.Text + "')";
+            string insertQuery = "INSERT INTO [IT_Inventory].[dbo].devices(SN, SN_Type, hostName, make, model, category, assignedTo, status, serviceStartDate) VALUES (@SN, @Type, @hostName, @make, @model, @category, '0', 'Active', '" + dtStartDate.Value + "')";
             SqlCommand cmd = new SqlCommand(insertQuery, Connection);
             cmd.Parameters.Add("@SN", SqlDbType.VarChar, 255);
             cmd.Parameters["@SN"].Value = txtSN.Text;
@@ -93,6 +96,40 @@ namespace Inventory_Manager
             MainForm.generateEvent("ADD DEVICE", getUniqueDeviceID(cmd.Parameters["@SN"].Value.ToString()), "Added " + cmd.Parameters["@Type"].Value.ToString() + ": " + cmd.Parameters["@SN"].Value.ToString() + " to Devices");
             MainForm.deviceViewHandler();
             this.Close();
+        }
+
+        private void addToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formCatSNAddDelete catSNAddDeleteForm = new formCatSNAddDelete(this, "CatAdd");
+            catSNAddDeleteForm.ShowDialog();
+        }
+
+        private bool inComboBox(ComboBox cb, string toCheck) 
+        {
+            for (int i = 0; i < cb.Items.Count; i++) 
+            {
+                if ((string)cb.Items[i] == toCheck) 
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public void addToCatList(string item) 
+        {
+            cbCat.Items.Add(item);
+        }
+
+        public void addToSNList(string item) 
+        {
+            cbType.Items.Add(item);
+        }
+
+        private void sNTypeToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            formCatSNAddDelete catSNAddDeleteForm = new formCatSNAddDelete(this, "TypeAdd");
+            catSNAddDeleteForm.ShowDialog();
         }
     }
 }

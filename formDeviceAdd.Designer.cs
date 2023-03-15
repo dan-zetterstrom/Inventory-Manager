@@ -43,6 +43,11 @@
             this.cmdAddDevice = new System.Windows.Forms.Button();
             this.dtStartDate = new System.Windows.Forms.DateTimePicker();
             this.lblDateStart = new System.Windows.Forms.Label();
+            this.comboManageMenu = new System.Windows.Forms.MenuStrip();
+            this.categoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sNTypeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.comboManageMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblSN
@@ -158,7 +163,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cbCat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCat.FormattingEnabled = true;
-            this.cbCat.Location = new System.Drawing.Point(77, 201);
+            this.cbCat.Items.AddRange(new object[] {
+            "Computers"});
+            this.cbCat.Location = new System.Drawing.Point(77, 202);
             this.cbCat.Name = "cbCat";
             this.cbCat.Size = new System.Drawing.Size(437, 21);
             this.cbCat.TabIndex = 11;
@@ -193,6 +200,39 @@
             this.lblDateStart.TabIndex = 15;
             this.lblDateStart.Text = "Service Start Date: ";
             // 
+            // comboManageMenu
+            // 
+            this.comboManageMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.categoryToolStripMenuItem});
+            this.comboManageMenu.Location = new System.Drawing.Point(0, 0);
+            this.comboManageMenu.Name = "comboManageMenu";
+            this.comboManageMenu.Size = new System.Drawing.Size(526, 24);
+            this.comboManageMenu.TabIndex = 16;
+            this.comboManageMenu.Text = "menuStrip1";
+            // 
+            // categoryToolStripMenuItem
+            // 
+            this.categoryToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addToolStripMenuItem,
+            this.sNTypeToolStripMenuItem1});
+            this.categoryToolStripMenuItem.Name = "categoryToolStripMenuItem";
+            this.categoryToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
+            this.categoryToolStripMenuItem.Text = "Add";
+            // 
+            // addToolStripMenuItem
+            // 
+            this.addToolStripMenuItem.Name = "addToolStripMenuItem";
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addToolStripMenuItem.Text = "Category";
+            this.addToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
+            // 
+            // sNTypeToolStripMenuItem1
+            // 
+            this.sNTypeToolStripMenuItem1.Name = "sNTypeToolStripMenuItem1";
+            this.sNTypeToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.sNTypeToolStripMenuItem1.Text = "SN Type";
+            this.sNTypeToolStripMenuItem1.Click += new System.EventHandler(this.sNTypeToolStripMenuItem1_Click);
+            // 
             // formDeviceAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -213,8 +253,11 @@
             this.Controls.Add(this.lblHostName);
             this.Controls.Add(this.lblSNType);
             this.Controls.Add(this.lblSN);
+            this.Controls.Add(this.comboManageMenu);
             this.Name = "formDeviceAdd";
             this.Text = "Add Device";
+            this.comboManageMenu.ResumeLayout(false);
+            this.comboManageMenu.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -237,5 +280,9 @@
         private System.Windows.Forms.Button cmdAddDevice;
         private System.Windows.Forms.DateTimePicker dtStartDate;
         private System.Windows.Forms.Label lblDateStart;
+        private System.Windows.Forms.MenuStrip comboManageMenu;
+        private System.Windows.Forms.ToolStripMenuItem categoryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sNTypeToolStripMenuItem1;
     }
 }
