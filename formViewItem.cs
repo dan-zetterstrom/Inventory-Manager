@@ -19,8 +19,8 @@ namespace Inventory_Manager
         public bool descChanged, quantityChanged, itemChanged, locationChanged;
         public string Description;
         public string ItemLocation;
-        public int Quantity;
-        public formViewItem(SqlConnection connection, int ID, string description, int quantity, string category, string itemLocation, formMain mainForm)
+        public int Quantity, ID;
+        public formViewItem(SqlConnection connection, int id, string description, int quantity, string category, string itemLocation, formMain mainForm)
         {
             InitializeComponent();
 
@@ -30,7 +30,8 @@ namespace Inventory_Manager
             Quantity = quantity;
             ItemLocation = itemLocation;
 
-            txtID.Text = ID.ToString();
+            //txtID.Text = ID.ToString();
+            ID = id;
             txtCategory.Text = category;
 
             setBoxes();
@@ -51,13 +52,13 @@ namespace Inventory_Manager
                     cmd.Parameters.Add("@Location", SqlDbType.VarChar, 255);
                     cmd.Parameters["@Location"].Value = cbLocation.Text;
                     cmd.Parameters.Add("@ID", SqlDbType.Int);
-                    cmd.Parameters["@ID"].Value = txtID.Text;
+                    cmd.Parameters["@ID"].Value = ID;
                     cmd.ExecuteNonQuery();
                     if (itemChanged) 
                     {
                         MainForm.generateEvent("MODIFY INV ITEM", cmd.Parameters["@ID"].Value.ToString(), setEventDescription());
                     }
-                    MainForm.refreshDataGrid();
+                    MainForm.closetViewHandler();
                     this.Close();
                 }
                 else
@@ -79,9 +80,9 @@ namespace Inventory_Manager
                 string deleteQuery = "DELETE FROM [IT_Inventory].[dbo].inventoryObjects WHERE ID = @ID";
                 SqlCommand cmd = new SqlCommand(deleteQuery, Connection);
                 cmd.Parameters.Add("@ID", SqlDbType.Int);
-                cmd.Parameters["@ID"].Value = txtID.Text;
+                cmd.Parameters["@ID"].Value = ID;
                 cmd.ExecuteNonQuery();
-                MainForm.refreshDataGrid();
+                MainForm.closetViewHandler();
                 MainForm.generateEvent("DELETE INV ITEM", cmd.Parameters["@ID"].Value.ToString(), "Item: " + cmd.Parameters["@ID"].Value.ToString() +  " deleted");
                 this.Close();
             }

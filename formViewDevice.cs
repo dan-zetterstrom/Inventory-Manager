@@ -15,17 +15,17 @@ namespace Inventory_Manager
 {
     public partial class formViewDevice : Form
     {
-        public string SN, Type, HostName, Make, Model, Category, AssignedTo, Status;
+        public string SN, Type, HostName, Make, Model, Category, AssignedTo, Status, STID;
         public int ID;
         public SqlConnection Connection;
         public formMain MainForm;
         public DataSet typeDataSet, catDataSet, userDataSet, statusDataSet;
         public DataAdapter dataAdapter;
-        public bool snUpdated, typeUpdated, hostUpdated, makeUpdated, modelUpdated, catUpdated, assignedUpdated, statusUpdated, serviceStartDateUpdated, dateAssignedUpdated, deviceChanged;
+        public bool snUpdated, typeUpdated, hostUpdated, makeUpdated, modelUpdated, catUpdated, assignedUpdated, statusUpdated, serviceStartDateUpdated, dateAssignedUpdated, deviceChanged, STIDUpdated;
 
         public DateTime ServiceStartDate, DateAssigned;
 
-        public formViewDevice(SqlConnection connection, formMain mainForm, int id, string sn, string type, string hostName, string make, string model, string category, string assignedTo, string status, DateTime serviceStartDate, DateTime dateAssigned)
+        public formViewDevice(SqlConnection connection, formMain mainForm, int id, string sn, string type, string hostName, string make, string model, string category, string assignedTo, string status, DateTime serviceStartDate, DateTime dateAssigned, string stid)
         {
             InitializeComponent();
             Connection = connection;
@@ -38,9 +38,10 @@ namespace Inventory_Manager
             Category = category;
             AssignedTo = assignedTo;
             Status = status;
-            typeDataSet = getData("SELECT DISTINCT SN_Type FROM [IT_Inventory].[dbo].devices");
-            catDataSet = getData("SELECT DISTINCT category FROM [IT_Inventory].[dbo].devices");
-            userDataSet = getData("SELECT DISTINCT firstName + ' ' + lastName FROM [IT_Inventory].[dbo].users");
+            STID = stid;
+            typeDataSet = MainForm.getData("SELECT DISTINCT SN_Type FROM [IT_Inventory].[dbo].devices");
+            catDataSet = MainForm.getData("SELECT DISTINCT category FROM [IT_Inventory].[dbo].devices");
+            userDataSet = MainForm.getData("SELECT DISTINCT firstName + ' ' + lastName FROM [IT_Inventory].[dbo].users");
             ID = id;
             ServiceStartDate = serviceStartDate;
             DateAssigned = dateAssigned;
@@ -48,15 +49,6 @@ namespace Inventory_Manager
             populateComboBox(cbCat, catDataSet);
             populateComboBox(cbAssignedTo, userDataSet);
             setBoxes();
-        }
-
-        public DataSet getData(string queryString)
-        {
-            DataSet setOfData = new DataSet();
-            dataAdapter = new SqlDataAdapter(queryString, Connection);
-            setOfData = new DataSet();
-            dataAdapter.Fill(setOfData);
-            return setOfData;
         }
 
         public void populateComboBox(ComboBox cb, DataSet setOfData)
@@ -74,6 +66,7 @@ namespace Inventory_Manager
         {
             txtSN.Text = SN;
             cbType.Text = Type;
+            mtxtSTID.Text = STID;
             cbType.DropDownStyle = ComboBoxStyle.DropDownList;
             txtHostName.Text = HostName;
             txtMake.Text = Make;
@@ -88,6 +81,7 @@ namespace Inventory_Manager
             dtDateAssigned.Value = DateAssigned;
             snUpdated = false;
             typeUpdated = false;
+            STIDUpdated = false;
             hostUpdated = false;
             makeUpdated = false;
             modelUpdated = false;
@@ -129,7 +123,8 @@ namespace Inventory_Manager
 	[IT_Inventory].[dbo].devices 
 SET 
 	SN = @SN, 
-	SN_Type = @Type, 
+	SN_Type = @Type,
+    ST_ID = @STID,
 	hostName = @Host, 
 	make = @Make, 
 	model = @Model, 
@@ -150,6 +145,9 @@ WHERE
 
             cmd.Parameters.Add("@Type", SqlDbType.VarChar, 255);
             cmd.Parameters["@Type"].Value = cbType.Text;
+
+            cmd.Parameters.Add("@STID", SqlDbType.VarChar, 255);
+            cmd.Parameters["@STID"].Value = mtxtSTID.Text == "" ? mtxtSTID.Text : "ST" + mtxtSTID.Text;
 
             cmd.Parameters.Add("@Host", SqlDbType.VarChar, 255);
             cmd.Parameters["@Host"].Value = txtHostName.Text;
@@ -240,9 +238,15 @@ WHERE
             deviceChanged = true;
         }
 
+        private void mtxtSTID_ValueChanged(object sender, EventArgs e)
+        {
+            STIDUpdated = true;
+            deviceChanged = true;
+        }
+
         private string setEventDescription() 
         {
-            string snString = "", typeString = "", hostString = "", makeString = "", modelString = "", catString = "", assignedString = "", statusString = "", serviceStartString = "", dateAssignedString = "";
+            string snString = "", typeString = "", hostString = "", makeString = "", modelString = "", catString = "", assignedString = "", statusString = "", serviceStartString = "", dateAssignedString = "", stidString = "";
             if (snUpdated) 
             {
                 snString = "Serial number changed from " + SN + " to " + txtSN.Text + "; ";
@@ -283,7 +287,11 @@ WHERE
             {
                 dateAssignedString = "Date Assigned changed from " + DateAssigned + " to " + dtDateAssigned + "; ";
             }
-            return snString + typeString + hostString + makeString + modelString + catString + assignedString + statusString + serviceStartString + dateAssignedString;
+            if (STIDUpdated) 
+            {
+                stidString = "Spray-Tek ID changed from " + STID + " to " + mtxtSTID.Text + "; ";
+            }
+            return snString + typeString + hostString + makeString + modelString + catString + assignedString + statusString + serviceStartString + dateAssignedString + stidString;
         }
     }
 }

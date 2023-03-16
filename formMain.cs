@@ -31,7 +31,7 @@ namespace Inventory_Manager
         public String dbUN = "inventoryReader";
         public String dbPW = "1nventoryPass!";
         public String connectionString;
-        public String selectString = "SELECT ID, description AS 'Description', quantity AS 'Quantity', category AS 'Cat', location AS 'Location' FROM [IT_Inventory].[dbo].inventoryObjects ORDER BY ID";
+        public String selectString = "SELECT id AS 'ID', description AS 'Description', quantity AS 'Quantity', category AS 'Cat', location AS 'Location' FROM [IT_Inventory].[dbo].inventoryObjects ORDER BY category";
         public String deviceString;
         public String usersString; 
         public String changeLogString;
@@ -114,12 +114,12 @@ namespace Inventory_Manager
             if (deviceAdd)
             {
                 formDeviceAdd deviceAddForm = new formDeviceAdd(connection, this);
-                deviceAddForm.Show();
+                deviceAddForm.ShowDialog();
             }
             else if (userAdd) 
             {
                 formUserAdd userAddForm = new formUserAdd(connection, this);
-                userAddForm.Show();
+                userAddForm.ShowDialog();
             }
             else
             {
@@ -127,13 +127,13 @@ namespace Inventory_Manager
                 categoryDataSet = new DataSet();
                 categoryDataSet.Clear();
                 dataAdapter.Fill(categoryDataSet);
-
+                /*
                 idDataSet = new DataSet();
                 idDataSet.Clear();
                 dataAdapter = new SqlDataAdapter("SELECT MAX(ID) FROM [IT_Inventory].[dbo].inventoryObjects GROUP BY category", connection);
-                dataAdapter.Fill(idDataSet);
-                formAdd addForm = new formAdd(connection, categoryDataSet, idDataSet, this);
-                addForm.Show();
+                dataAdapter.Fill(idDataSet);*/
+                formAdd addForm = new formAdd(connection, categoryDataSet,/* idDataSet,*/ this);
+                addForm.ShowDialog();
             }
         }
 
@@ -143,23 +143,23 @@ namespace Inventory_Manager
 
             if (deviceView)
                 {/*
-              startServiceDate = If serviceStartDate is NULL in SQL, pass the current time to the view form, else pass serviceStartDate
-              dateAssigned = If dateAssigned is NULL in SQL, pass the current time to the view form, else pass dateAssigned
-              */
-                    DateTime startServiceDate = (row.Cells[9].Value.ToString() == "") ? DateTime.Now : DateTime.Parse(row.Cells[9].Value.ToString());
-                    DateTime dateAssigned = (row.Cells[10].Value.ToString() == "") ? DateTime.Now : DateTime.Parse(row.Cells[10].Value.ToString());
-                    formViewDevice deviceViewForm = new formViewDevice(connection, this, (int)row.Cells[0].Value, row.Cells[7].Value.ToString(), row.Cells[6].Value.ToString(), row.Cells[2].Value.ToString(), row.Cells[3].Value.ToString(), row.Cells[4].Value.ToString(), row.Cells[1].Value.ToString(), row.Cells[5].Value.ToString(), row.Cells[8].Value.ToString(), startServiceDate, dateAssigned);
-                    deviceViewForm.Show();
+                  startServiceDate = If serviceStartDate is NULL in SQL, pass the current time to the view form, else pass serviceStartDate
+                  dateAssigned = If dateAssigned is NULL in SQL, pass the current time to the view form, else pass dateAssigned
+                  */
+                    DateTime startServiceDate = (row.Cells[10].Value.ToString() == "") ? DateTime.Now : DateTime.Parse(row.Cells[10].Value.ToString());
+                    DateTime dateAssigned = (row.Cells[11].Value.ToString() == "") ? DateTime.Now : DateTime.Parse(row.Cells[11].Value.ToString());
+                    formViewDevice deviceViewForm = new formViewDevice(connection, this, (int)row.Cells[0].Value, row.Cells[8].Value.ToString(), row.Cells[7].Value.ToString(), row.Cells[3].Value.ToString(), row.Cells[4].Value.ToString(), row.Cells[5].Value.ToString(), row.Cells[1].Value.ToString(), row.Cells[6].Value.ToString(), row.Cells[9].Value.ToString(), startServiceDate, dateAssigned, row.Cells[2].Value.ToString());
+                    deviceViewForm.ShowDialog();
                 }
                 else if (userView)
                 {
                     formUserView userViewForm = new formUserView(connection, this, (int)row.Cells[0].Value, row.Cells[1].Value.ToString(), row.Cells[2].Value.ToString(), row.Cells[4].Value.ToString(), row.Cells[3].Value.ToString(), row.Cells[5].Value.ToString(), row.Cells[6].Value.ToString());
-                    userViewForm.Show();
+                    userViewForm.ShowDialog();
                 }
                 else
                 {
                     formViewItem viewForm = new formViewItem(connection, (int)row.Cells[0].Value, row.Cells[1].Value.ToString(), (int)row.Cells[2].Value, row.Cells[3].Value.ToString(), row.Cells[4].Value.ToString(), this);
-                    viewForm.Show();
+                    viewForm.ShowDialog();
                 }
         }
 
@@ -207,6 +207,7 @@ namespace Inventory_Manager
             deviceString = @"SELECT 
     d.ID AS 'ID',
 	d.category AS 'Category',
+    d.ST_ID AS 'Spray-Tek ID',
 	d.hostName AS 'Host Name', 
 	d.make AS 'Make',
 	d.model AS 'Model',
@@ -465,7 +466,7 @@ LEFT JOIN
         private void searchToolStripMenuItem_Click(object sender, EventArgs e)
         {
             formSearch searchForm = new formSearch(connection, this);
-            searchForm.Show();
+            searchForm.ShowDialog();
         }
 
         public void displaySearchResults(DataSet setOfData, string table) 
@@ -505,7 +506,7 @@ LEFT JOIN
              * importIndex 2 = Inventory Items
              */
             formImport importForm = new formImport(connection, this, 0);
-            importForm.Show();
+            importForm.ShowDialog();
         }
 
         private void menuDataBaseImportDevices_Click(object sender, EventArgs e)
@@ -516,7 +517,7 @@ LEFT JOIN
              * importIndex 2 = Inventory Items
              */
             formImport importForm = new formImport(connection, this, 1);
-            importForm.Show();
+            importForm.ShowDialog();
         }
 
         private void menuDataBaseImportInventory_Click(object sender, EventArgs e)
@@ -527,7 +528,17 @@ LEFT JOIN
              * importIndex 2 = Inventory Items
              */
             formImport importForm = new formImport(connection, this, 2);
-            importForm.Show();
+            importForm.ShowDialog();
+        }
+
+        public DataSet getData(string queryString)
+        {
+            //Given a query string, returns dataset of results
+            DataSet setOfData = new DataSet();
+            dataAdapter = new SqlDataAdapter(queryString, connection);
+            setOfData = new DataSet();
+            dataAdapter.Fill(setOfData);
+            return setOfData;
         }
     }
 }

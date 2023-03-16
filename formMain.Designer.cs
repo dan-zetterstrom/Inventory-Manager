@@ -100,7 +100,7 @@
             // menuDataBaseChange
             // 
             this.menuDataBaseChange.Name = "menuDataBaseChange";
-            this.menuDataBaseChange.Size = new System.Drawing.Size(180, 22);
+            this.menuDataBaseChange.Size = new System.Drawing.Size(115, 22);
             this.menuDataBaseChange.Text = "Change";
             this.menuDataBaseChange.Click += new System.EventHandler(this.changeToolStripMenuItem_Click);
             // 
@@ -108,7 +108,7 @@
             // 
             this.menuDataBaseRefresh.Enabled = false;
             this.menuDataBaseRefresh.Name = "menuDataBaseRefresh";
-            this.menuDataBaseRefresh.Size = new System.Drawing.Size(180, 22);
+            this.menuDataBaseRefresh.Size = new System.Drawing.Size(115, 22);
             this.menuDataBaseRefresh.Text = "Refresh";
             this.menuDataBaseRefresh.Visible = false;
             this.menuDataBaseRefresh.Click += new System.EventHandler(this.refreshToolStripMenuItem1_Click);
@@ -119,20 +119,20 @@
             this.menuDataBaseImportDevices,
             this.menuDataBaseImportUsers});
             this.menuDataBaseImport.Name = "menuDataBaseImport";
-            this.menuDataBaseImport.Size = new System.Drawing.Size(180, 22);
+            this.menuDataBaseImport.Size = new System.Drawing.Size(115, 22);
             this.menuDataBaseImport.Text = "Import";
             // 
             // menuDataBaseImportDevices
             // 
             this.menuDataBaseImportDevices.Name = "menuDataBaseImportDevices";
-            this.menuDataBaseImportDevices.Size = new System.Drawing.Size(180, 22);
+            this.menuDataBaseImportDevices.Size = new System.Drawing.Size(114, 22);
             this.menuDataBaseImportDevices.Text = "Devices";
             this.menuDataBaseImportDevices.Click += new System.EventHandler(this.menuDataBaseImportDevices_Click);
             // 
             // menuDataBaseImportUsers
             // 
             this.menuDataBaseImportUsers.Name = "menuDataBaseImportUsers";
-            this.menuDataBaseImportUsers.Size = new System.Drawing.Size(180, 22);
+            this.menuDataBaseImportUsers.Size = new System.Drawing.Size(114, 22);
             this.menuDataBaseImportUsers.Text = "Users";
             this.menuDataBaseImportUsers.Click += new System.EventHandler(this.menuDataBaseImportUsers_Click);
             // 
@@ -150,28 +150,28 @@
             // menuViewCloset
             // 
             this.menuViewCloset.Name = "menuViewCloset";
-            this.menuViewCloset.Size = new System.Drawing.Size(160, 22);
+            this.menuViewCloset.Size = new System.Drawing.Size(180, 22);
             this.menuViewCloset.Text = "Closet Inventory";
             this.menuViewCloset.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
             // 
             // menuViewDevices
             // 
             this.menuViewDevices.Name = "menuViewDevices";
-            this.menuViewDevices.Size = new System.Drawing.Size(160, 22);
+            this.menuViewDevices.Size = new System.Drawing.Size(180, 22);
             this.menuViewDevices.Text = "Devices";
             this.menuViewDevices.Click += new System.EventHandler(this.menuViewDevices_Click);
             // 
             // menuViewUsers
             // 
             this.menuViewUsers.Name = "menuViewUsers";
-            this.menuViewUsers.Size = new System.Drawing.Size(160, 22);
+            this.menuViewUsers.Size = new System.Drawing.Size(180, 22);
             this.menuViewUsers.Text = "Users";
             this.menuViewUsers.Click += new System.EventHandler(this.usersToolStripMenuItem1_Click);
             // 
             // menuViewChangeLog
             // 
             this.menuViewChangeLog.Name = "menuViewChangeLog";
-            this.menuViewChangeLog.Size = new System.Drawing.Size(160, 22);
+            this.menuViewChangeLog.Size = new System.Drawing.Size(180, 22);
             this.menuViewChangeLog.Text = "Change Log";
             this.menuViewChangeLog.Click += new System.EventHandler(this.changeLogToolStripMenuItem_Click);
             // 

@@ -47,6 +47,8 @@
             this.categoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sNTypeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblSTID = new System.Windows.Forms.Label();
+            this.mtxtSTID = new System.Windows.Forms.MaskedTextBox();
             this.comboManageMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,7 +64,7 @@
             // lblSNType
             // 
             this.lblSNType.AutoSize = true;
-            this.lblSNType.Location = new System.Drawing.Point(12, 69);
+            this.lblSNType.Location = new System.Drawing.Point(12, 68);
             this.lblSNType.Name = "lblSNType";
             this.lblSNType.Size = new System.Drawing.Size(106, 13);
             this.lblSNType.TabIndex = 1;
@@ -71,7 +73,7 @@
             // lblHostName
             // 
             this.lblHostName.AutoSize = true;
-            this.lblHostName.Location = new System.Drawing.Point(12, 104);
+            this.lblHostName.Location = new System.Drawing.Point(12, 132);
             this.lblHostName.Name = "lblHostName";
             this.lblHostName.Size = new System.Drawing.Size(63, 13);
             this.lblHostName.TabIndex = 2;
@@ -80,7 +82,7 @@
             // lblMake
             // 
             this.lblMake.AutoSize = true;
-            this.lblMake.Location = new System.Drawing.Point(12, 136);
+            this.lblMake.Location = new System.Drawing.Point(12, 164);
             this.lblMake.Name = "lblMake";
             this.lblMake.Size = new System.Drawing.Size(37, 13);
             this.lblMake.TabIndex = 3;
@@ -89,7 +91,7 @@
             // lblModel
             // 
             this.lblModel.AutoSize = true;
-            this.lblModel.Location = new System.Drawing.Point(12, 172);
+            this.lblModel.Location = new System.Drawing.Point(12, 200);
             this.lblModel.Name = "lblModel";
             this.lblModel.Size = new System.Drawing.Size(39, 13);
             this.lblModel.TabIndex = 4;
@@ -98,7 +100,7 @@
             // lblCategory
             // 
             this.lblCategory.AutoSize = true;
-            this.lblCategory.Location = new System.Drawing.Point(12, 204);
+            this.lblCategory.Location = new System.Drawing.Point(12, 232);
             this.lblCategory.Name = "lblCategory";
             this.lblCategory.Size = new System.Drawing.Size(52, 13);
             this.lblCategory.TabIndex = 5;
@@ -121,9 +123,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbType.FormattingEnabled = true;
-            this.cbType.Location = new System.Drawing.Point(132, 69);
+            this.cbType.Location = new System.Drawing.Point(118, 65);
             this.cbType.Name = "cbType";
-            this.cbType.Size = new System.Drawing.Size(382, 21);
+            this.cbType.Size = new System.Drawing.Size(396, 21);
             this.cbType.TabIndex = 7;
             // 
             // txtHostName
@@ -131,9 +133,9 @@
             this.txtHostName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtHostName.Location = new System.Drawing.Point(88, 101);
+            this.txtHostName.Location = new System.Drawing.Point(81, 129);
             this.txtHostName.Name = "txtHostName";
-            this.txtHostName.Size = new System.Drawing.Size(426, 20);
+            this.txtHostName.Size = new System.Drawing.Size(433, 20);
             this.txtHostName.TabIndex = 8;
             // 
             // txtMake
@@ -141,7 +143,7 @@
             this.txtMake.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMake.Location = new System.Drawing.Point(62, 133);
+            this.txtMake.Location = new System.Drawing.Point(62, 161);
             this.txtMake.Name = "txtMake";
             this.txtMake.Size = new System.Drawing.Size(452, 20);
             this.txtMake.TabIndex = 9;
@@ -151,7 +153,7 @@
             this.txtModel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtModel.Location = new System.Drawing.Point(64, 169);
+            this.txtModel.Location = new System.Drawing.Point(64, 197);
             this.txtModel.Name = "txtModel";
             this.txtModel.Size = new System.Drawing.Size(450, 20);
             this.txtModel.TabIndex = 10;
@@ -165,15 +167,15 @@
             this.cbCat.FormattingEnabled = true;
             this.cbCat.Items.AddRange(new object[] {
             "Computers"});
-            this.cbCat.Location = new System.Drawing.Point(77, 202);
+            this.cbCat.Location = new System.Drawing.Point(64, 230);
             this.cbCat.Name = "cbCat";
-            this.cbCat.Size = new System.Drawing.Size(437, 21);
+            this.cbCat.Size = new System.Drawing.Size(450, 21);
             this.cbCat.TabIndex = 11;
             // 
             // cmdAddDevice
             // 
             this.cmdAddDevice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdAddDevice.Location = new System.Drawing.Point(439, 266);
+            this.cmdAddDevice.Location = new System.Drawing.Point(439, 298);
             this.cmdAddDevice.Name = "cmdAddDevice";
             this.cmdAddDevice.Size = new System.Drawing.Size(75, 23);
             this.cmdAddDevice.TabIndex = 12;
@@ -186,7 +188,7 @@
             this.dtStartDate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtStartDate.Location = new System.Drawing.Point(118, 233);
+            this.dtStartDate.Location = new System.Drawing.Point(118, 261);
             this.dtStartDate.Name = "dtStartDate";
             this.dtStartDate.Size = new System.Drawing.Size(396, 20);
             this.dtStartDate.TabIndex = 14;
@@ -194,7 +196,7 @@
             // lblDateStart
             // 
             this.lblDateStart.AutoSize = true;
-            this.lblDateStart.Location = new System.Drawing.Point(12, 236);
+            this.lblDateStart.Location = new System.Drawing.Point(12, 264);
             this.lblDateStart.Name = "lblDateStart";
             this.lblDateStart.Size = new System.Drawing.Size(100, 13);
             this.lblDateStart.TabIndex = 15;
@@ -233,11 +235,30 @@
             this.sNTypeToolStripMenuItem1.Text = "SN Type";
             this.sNTypeToolStripMenuItem1.Click += new System.EventHandler(this.sNTypeToolStripMenuItem1_Click);
             // 
+            // lblSTID
+            // 
+            this.lblSTID.AutoSize = true;
+            this.lblSTID.Location = new System.Drawing.Point(12, 100);
+            this.lblSTID.Name = "lblSTID";
+            this.lblSTID.Size = new System.Drawing.Size(90, 13);
+            this.lblSTID.TabIndex = 17;
+            this.lblSTID.Text = "Spray-Tek ID: ST";
+            // 
+            // mtxtSTID
+            // 
+            this.mtxtSTID.Location = new System.Drawing.Point(101, 97);
+            this.mtxtSTID.Mask = "00000";
+            this.mtxtSTID.Name = "mtxtSTID";
+            this.mtxtSTID.Size = new System.Drawing.Size(413, 20);
+            this.mtxtSTID.TabIndex = 18;
+            // 
             // formDeviceAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(526, 301);
+            this.ClientSize = new System.Drawing.Size(526, 333);
+            this.Controls.Add(this.mtxtSTID);
+            this.Controls.Add(this.lblSTID);
             this.Controls.Add(this.lblDateStart);
             this.Controls.Add(this.dtStartDate);
             this.Controls.Add(this.cmdAddDevice);
@@ -284,5 +305,7 @@
         private System.Windows.Forms.ToolStripMenuItem categoryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sNTypeToolStripMenuItem1;
+        private System.Windows.Forms.Label lblSTID;
+        private System.Windows.Forms.MaskedTextBox mtxtSTID;
     }
 }

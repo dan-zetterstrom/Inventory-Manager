@@ -30,19 +30,11 @@ namespace Inventory_Manager
                 txtLastName.Text = name.Split(' ')[1];
             }
         }
-        public DataSet getData(string queryString)
-        {
-            DataSet setOfData = new DataSet();
-            dataAdapter = new SqlDataAdapter(queryString, Connection);
-            setOfData = new DataSet();
-            dataAdapter.Fill(setOfData);
-            return setOfData;
-        }
 
         private string getUniqueDeviceID()
         {
             string uniqueDeviceID = "99999";
-            DataSet idSet = getData("SELECT TOP 1 userID FROM [IT_Inventory].[dbo].users WHERE firstName + ' ' + lastName = '" + txtFirstName.Text + " " + txtLastName.Text + "' ORDER BY userID DESC");
+            DataSet idSet = MainForm.getData("SELECT TOP 1 userID FROM [IT_Inventory].[dbo].users WHERE firstName + ' ' + lastName = '" + txtFirstName.Text + " " + txtLastName.Text + "' ORDER BY userID DESC");
             foreach (DataRow row in idSet.Tables[0].Rows)
             {
                 foreach (Object item in row.ItemArray)

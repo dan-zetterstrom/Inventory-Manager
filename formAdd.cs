@@ -8,20 +8,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Data.Common;
 
 namespace Inventory_Manager
 {
     public partial class formAdd : Form
     {
         public SqlConnection Connection;
-        public DataSet idDataSet;
+        //public DataSet idDataSet;
         public formMain MainForm;
+        public DataAdapter dataAdapter;
 
-        public formAdd(SqlConnection connection, DataSet categoryList, DataSet idList, formMain mainForm) 
+        public formAdd(SqlConnection connection, DataSet categoryList,/* DataSet idList,*/ formMain mainForm) 
         {
             InitializeComponent();
             Connection = connection;
-            idDataSet = idList;
+            //idDataSet = idList;
             MainForm = mainForm;
 
             //Populates "Categories" combo box with all elements from the supplied category dataset
@@ -44,10 +46,10 @@ namespace Inventory_Manager
             {
                 if (cbCategories.Text != "")
                 {
-                    string insertQuery = "INSERT INTO [IT_Inventory].[dbo].inventoryObjects(ID, description, quantity, category, location) VALUES (@ID, @Description, @Quantity, @Category, @Location)";
+                    string insertQuery = "INSERT INTO [IT_Inventory].[dbo].inventoryObjects(description, quantity, category, location) VALUES (@Description, @Quantity, @Category, @Location)";
                     SqlCommand cmd = new SqlCommand(insertQuery, Connection);
-                    cmd.Parameters.Add("@ID", SqlDbType.Int);
-                    cmd.Parameters["@ID"].Value = getNextID(cbCategories.Text);
+                    /*cmd.Parameters.Add("@ID", SqlDbType.Int);
+                    cmd.Parameters["@ID"].Value = getNextID(cbCategories.Text);*/
                     cmd.Parameters.Add("@Description", SqlDbType.VarChar, 255);
                     cmd.Parameters["@Description"].Value = txtDescription.Text;
                     cmd.Parameters.Add("@Quantity", SqlDbType.Int);
@@ -57,8 +59,9 @@ namespace Inventory_Manager
                     cmd.Parameters.Add("@Location", SqlDbType.VarChar, 255);
                     cmd.Parameters["@Location"].Value = cbLocation.Text;
                     cmd.ExecuteNonQuery();
-                    MainForm.refreshDataGrid();
-                    MainForm.generateEvent("ADD INV ITEM", cmd.Parameters["@ID"].Value.ToString(), "Added " + txtDescription.Text + " to Closet Inventory");
+                    MainForm.closetViewHandler();
+                    //MainForm.generateEvent("ADD INV ITEM", cmd.Parameters["@ID"].Value.ToString(), "Added " + txtDescription.Text + " to Closet Inventory");
+                    MainForm.generateEvent("ADD INV ITEM", cmd.Parameters["@Description"].Value.ToString(), "Added " + txtDescription.Text + " to Closet Inventory");
                     this.Close();
                 }
                 else 
@@ -72,7 +75,33 @@ namespace Inventory_Manager
             }
         }
 
-        private int getNextID(string cat) {
+        private void addCategoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formCatSNAddDelete catSNAddDeleteForm = new formCatSNAddDelete(this, "invCatAdd");
+            catSNAddDeleteForm.ShowDialog();
+        }
+
+        public void addCategory(string toAdd) 
+        {
+            cbCategories.Items.Add(toAdd);
+        }
+
+
+        private string getUniqueDeviceID(string serialNumber)
+        {
+            //Given a serial number, returns the primary key deviceID from the table for use in event reporting
+            string uniqueDeviceID = "99999";
+            DataSet idSet = MainForm.getData("SELECT TOP 1 ID FROM [IT_Inventory].[dbo].inventoryObjects WHERE SN = '" + serialNumber + "' ORDER BY ID DESC");
+            foreach (DataRow row in idSet.Tables[0].Rows)
+            {
+                foreach (Object item in row.ItemArray)
+                {
+                    uniqueDeviceID = item.ToString();
+                }
+            }
+            return uniqueDeviceID;
+        }
+        /*private int getNextID(string cat) {
             //Given a dataset of max category IDs, it returns the next highest ID for the given category
             switch (cat) {
                 case ("Data"):
@@ -95,6 +124,6 @@ namespace Inventory_Manager
                     return (int)idDataSet.Tables[0].Rows[4].ItemArray[0] + 1;
             }
             return 0;
-        }
+        }*/
     }
 }

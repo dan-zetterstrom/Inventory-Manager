@@ -25,18 +25,8 @@ namespace Inventory_Manager
             InitializeComponent();
             MainForm = mainForm;
             Connection = connection;
-            populateComboBox(cbType, getData("SELECT DISTINCT SN_Type FROM [IT_Inventory].[dbo].devices"));
-            populateComboBox(cbCat, getData("SELECT DISTINCT category FROM [IT_Inventory].[dbo].devices"));
-        }
-       
-        public DataSet getData(string queryString) 
-        {
-            //Given a query string, returns dataset of results
-            DataSet setOfData = new DataSet();
-            dataAdapter = new SqlDataAdapter(queryString, Connection);
-            setOfData = new DataSet();
-            dataAdapter.Fill(setOfData);
-            return setOfData;
+            populateComboBox(cbType, MainForm.getData("SELECT DISTINCT SN_Type FROM [IT_Inventory].[dbo].devices"));
+            populateComboBox(cbCat, MainForm.getData("SELECT DISTINCT category FROM [IT_Inventory].[dbo].devices"));
         }
 
         public void populateComboBox(ComboBox cb, DataSet setOfData) 
@@ -57,7 +47,7 @@ namespace Inventory_Manager
         {
             //Given a serial number, returns the primary key deviceID from the table for use in event reporting
             string uniqueDeviceID = "99999";
-            DataSet idSet = getData("SELECT TOP 1 ID FROM [IT_Inventory].[dbo].devices WHERE SN = '" + serialNumber + "' ORDER BY ID DESC");
+            DataSet idSet = MainForm.getData("SELECT TOP 1 ID FROM [IT_Inventory].[dbo].devices WHERE SN = '" + serialNumber + "' ORDER BY ID DESC");
             foreach (DataRow row in idSet.Tables[0].Rows)
             {
                 foreach (Object item in row.ItemArray)
@@ -72,7 +62,7 @@ namespace Inventory_Manager
         {
             //Sanatizes user inputs to avoid any and all
             //tomfoolery, shenanigans, and brouhaha (that's the correct spelling, I checked)
-            string insertQuery = "INSERT INTO [IT_Inventory].[dbo].devices(SN, SN_Type, hostName, make, model, category, assignedTo, status, serviceStartDate) VALUES (@SN, @Type, @hostName, @make, @model, @category, '0', 'Active', '" + dtStartDate.Value + "')";
+            string insertQuery = "INSERT INTO [IT_Inventory].[dbo].devices(SN, SN_Type, hostName, make, model, category, assignedTo, status, serviceStartDate, ST_ID) VALUES (@SN, @Type, @hostName, @make, @model, @category, '0', 'Active', '" + dtStartDate.Value + "', @STID)";
             SqlCommand cmd = new SqlCommand(insertQuery, Connection);
             cmd.Parameters.Add("@SN", SqlDbType.VarChar, 255);
             cmd.Parameters["@SN"].Value = txtSN.Text;
@@ -91,6 +81,9 @@ namespace Inventory_Manager
 
             cmd.Parameters.Add("@category", SqlDbType.VarChar, 255);
             cmd.Parameters["@category"].Value = cbCat.Text;
+
+            cmd.Parameters.Add("@STID", SqlDbType.VarChar, 255);
+            cmd.Parameters["@STID"].Value = mtxtSTID.Text == "" ? mtxtSTID.Text : "ST" + mtxtSTID.Text;
 
             cmd.ExecuteNonQuery();
             MainForm.generateEvent("ADD DEVICE", getUniqueDeviceID(cmd.Parameters["@SN"].Value.ToString()), "Added " + cmd.Parameters["@Type"].Value.ToString() + ": " + cmd.Parameters["@SN"].Value.ToString() + " to Devices");

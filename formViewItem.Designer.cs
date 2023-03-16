@@ -33,8 +33,6 @@
             this.txtCategory = new System.Windows.Forms.TextBox();
             this.lblDescription = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.TextBox();
-            this.lblID = new System.Windows.Forms.Label();
-            this.txtID = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveChangesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,7 +46,7 @@
             // lblQuantity
             // 
             this.lblQuantity.AutoSize = true;
-            this.lblQuantity.Location = new System.Drawing.Point(11, 115);
+            this.lblQuantity.Location = new System.Drawing.Point(11, 76);
             this.lblQuantity.Name = "lblQuantity";
             this.lblQuantity.Size = new System.Drawing.Size(49, 13);
             this.lblQuantity.TabIndex = 3;
@@ -57,7 +55,7 @@
             // lblCategory
             // 
             this.lblCategory.AutoSize = true;
-            this.lblCategory.Location = new System.Drawing.Point(11, 154);
+            this.lblCategory.Location = new System.Drawing.Point(11, 115);
             this.lblCategory.Name = "lblCategory";
             this.lblCategory.Size = new System.Drawing.Size(52, 13);
             this.lblCategory.TabIndex = 6;
@@ -69,7 +67,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCategory.Enabled = false;
-            this.txtCategory.Location = new System.Drawing.Point(12, 170);
+            this.txtCategory.Location = new System.Drawing.Point(12, 131);
             this.txtCategory.Name = "txtCategory";
             this.txtCategory.Size = new System.Drawing.Size(482, 20);
             this.txtCategory.TabIndex = 5;
@@ -77,7 +75,7 @@
             // lblDescription
             // 
             this.lblDescription.AutoSize = true;
-            this.lblDescription.Location = new System.Drawing.Point(11, 76);
+            this.lblDescription.Location = new System.Drawing.Point(11, 37);
             this.lblDescription.Name = "lblDescription";
             this.lblDescription.Size = new System.Drawing.Size(63, 13);
             this.lblDescription.TabIndex = 8;
@@ -88,31 +86,11 @@
             this.txtDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDescription.Location = new System.Drawing.Point(12, 92);
+            this.txtDescription.Location = new System.Drawing.Point(12, 53);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(482, 20);
             this.txtDescription.TabIndex = 7;
             this.txtDescription.TextChanged += new System.EventHandler(this.txtDescription_TextChanged);
-            // 
-            // lblID
-            // 
-            this.lblID.AutoSize = true;
-            this.lblID.Location = new System.Drawing.Point(11, 37);
-            this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(21, 13);
-            this.lblID.TabIndex = 10;
-            this.lblID.Text = "ID:";
-            // 
-            // txtID
-            // 
-            this.txtID.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtID.Enabled = false;
-            this.txtID.Location = new System.Drawing.Point(12, 53);
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(482, 20);
-            this.txtID.TabIndex = 9;
             // 
             // menuStrip1
             // 
@@ -144,7 +122,7 @@
             this.numQuantity.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.numQuantity.Location = new System.Drawing.Point(12, 131);
+            this.numQuantity.Location = new System.Drawing.Point(12, 92);
             this.numQuantity.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -168,7 +146,7 @@
             // lblLocation
             // 
             this.lblLocation.AutoSize = true;
-            this.lblLocation.Location = new System.Drawing.Point(11, 193);
+            this.lblLocation.Location = new System.Drawing.Point(11, 154);
             this.lblLocation.Name = "lblLocation";
             this.lblLocation.Size = new System.Drawing.Size(51, 13);
             this.lblLocation.TabIndex = 13;
@@ -181,7 +159,7 @@
             "NJ",
             "PA",
             "WI"});
-            this.cbLocation.Location = new System.Drawing.Point(12, 209);
+            this.cbLocation.Location = new System.Drawing.Point(12, 170);
             this.cbLocation.Name = "cbLocation";
             this.cbLocation.Size = new System.Drawing.Size(482, 21);
             this.cbLocation.TabIndex = 14;
@@ -191,12 +169,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(507, 247);
+            this.ClientSize = new System.Drawing.Size(507, 208);
             this.Controls.Add(this.cbLocation);
             this.Controls.Add(this.lblLocation);
             this.Controls.Add(this.numQuantity);
-            this.Controls.Add(this.lblID);
-            this.Controls.Add(this.txtID);
             this.Controls.Add(this.lblDescription);
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.lblCategory);
@@ -219,8 +195,6 @@
         private System.Windows.Forms.TextBox txtCategory;
         private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.TextBox txtDescription;
-        private System.Windows.Forms.Label lblID;
-        private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveChangesToolStripMenuItem;

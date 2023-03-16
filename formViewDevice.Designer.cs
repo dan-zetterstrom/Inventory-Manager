@@ -51,6 +51,8 @@
             this.lblDateAssigned = new System.Windows.Forms.Label();
             this.dtServiceStartDate = new System.Windows.Forms.DateTimePicker();
             this.dtDateAssigned = new System.Windows.Forms.DateTimePicker();
+            this.mtxtSTID = new System.Windows.Forms.MaskedTextBox();
+            this.lblSTID = new System.Windows.Forms.Label();
             this.meNu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,7 +62,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cbCat.FormattingEnabled = true;
-            this.cbCat.Location = new System.Drawing.Point(72, 205);
+            this.cbCat.Location = new System.Drawing.Point(72, 237);
             this.cbCat.Name = "cbCat";
             this.cbCat.Size = new System.Drawing.Size(380, 21);
             this.cbCat.TabIndex = 23;
@@ -71,7 +73,7 @@
             this.txtModel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtModel.Location = new System.Drawing.Point(59, 173);
+            this.txtModel.Location = new System.Drawing.Point(59, 205);
             this.txtModel.Name = "txtModel";
             this.txtModel.Size = new System.Drawing.Size(393, 20);
             this.txtModel.TabIndex = 22;
@@ -82,7 +84,7 @@
             this.txtMake.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMake.Location = new System.Drawing.Point(57, 137);
+            this.txtMake.Location = new System.Drawing.Point(57, 169);
             this.txtMake.Name = "txtMake";
             this.txtMake.Size = new System.Drawing.Size(395, 20);
             this.txtMake.TabIndex = 21;
@@ -93,7 +95,7 @@
             this.txtHostName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtHostName.Location = new System.Drawing.Point(83, 105);
+            this.txtHostName.Location = new System.Drawing.Point(83, 137);
             this.txtHostName.Name = "txtHostName";
             this.txtHostName.Size = new System.Drawing.Size(369, 20);
             this.txtHostName.TabIndex = 20;
@@ -105,9 +107,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cbType.FormattingEnabled = true;
-            this.cbType.Location = new System.Drawing.Point(127, 73);
+            this.cbType.Location = new System.Drawing.Point(119, 70);
             this.cbType.Name = "cbType";
-            this.cbType.Size = new System.Drawing.Size(325, 21);
+            this.cbType.Size = new System.Drawing.Size(333, 21);
             this.cbType.TabIndex = 19;
             this.cbType.SelectedIndexChanged += new System.EventHandler(this.cbType_SelectedIndexChanged);
             // 
@@ -125,7 +127,7 @@
             // lblCategory
             // 
             this.lblCategory.AutoSize = true;
-            this.lblCategory.Location = new System.Drawing.Point(7, 208);
+            this.lblCategory.Location = new System.Drawing.Point(7, 240);
             this.lblCategory.Name = "lblCategory";
             this.lblCategory.Size = new System.Drawing.Size(52, 13);
             this.lblCategory.TabIndex = 17;
@@ -134,7 +136,7 @@
             // lblModel
             // 
             this.lblModel.AutoSize = true;
-            this.lblModel.Location = new System.Drawing.Point(7, 176);
+            this.lblModel.Location = new System.Drawing.Point(7, 208);
             this.lblModel.Name = "lblModel";
             this.lblModel.Size = new System.Drawing.Size(39, 13);
             this.lblModel.TabIndex = 16;
@@ -143,7 +145,7 @@
             // lblMake
             // 
             this.lblMake.AutoSize = true;
-            this.lblMake.Location = new System.Drawing.Point(7, 140);
+            this.lblMake.Location = new System.Drawing.Point(7, 172);
             this.lblMake.Name = "lblMake";
             this.lblMake.Size = new System.Drawing.Size(37, 13);
             this.lblMake.TabIndex = 15;
@@ -152,7 +154,7 @@
             // lblHostName
             // 
             this.lblHostName.AutoSize = true;
-            this.lblHostName.Location = new System.Drawing.Point(7, 108);
+            this.lblHostName.Location = new System.Drawing.Point(7, 140);
             this.lblHostName.Name = "lblHostName";
             this.lblHostName.Size = new System.Drawing.Size(63, 13);
             this.lblHostName.TabIndex = 14;
@@ -209,7 +211,7 @@
             this.cbAssignedTo.FormattingEnabled = true;
             this.cbAssignedTo.Items.AddRange(new object[] {
             "Unassigned"});
-            this.cbAssignedTo.Location = new System.Drawing.Point(82, 239);
+            this.cbAssignedTo.Location = new System.Drawing.Point(82, 271);
             this.cbAssignedTo.Name = "cbAssignedTo";
             this.cbAssignedTo.Size = new System.Drawing.Size(370, 21);
             this.cbAssignedTo.TabIndex = 26;
@@ -218,7 +220,7 @@
             // lblUser
             // 
             this.lblUser.AutoSize = true;
-            this.lblUser.Location = new System.Drawing.Point(7, 242);
+            this.lblUser.Location = new System.Drawing.Point(7, 274);
             this.lblUser.Name = "lblUser";
             this.lblUser.Size = new System.Drawing.Size(69, 13);
             this.lblUser.TabIndex = 25;
@@ -233,7 +235,7 @@
             this.cbStatus.Items.AddRange(new object[] {
             "Active",
             "Inactive"});
-            this.cbStatus.Location = new System.Drawing.Point(53, 271);
+            this.cbStatus.Location = new System.Drawing.Point(53, 303);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(399, 21);
             this.cbStatus.TabIndex = 28;
@@ -242,7 +244,7 @@
             // lblStatus
             // 
             this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(7, 274);
+            this.lblStatus.Location = new System.Drawing.Point(7, 306);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(40, 13);
             this.lblStatus.TabIndex = 27;
@@ -251,7 +253,7 @@
             // lblServiceStartDate
             // 
             this.lblServiceStartDate.AutoSize = true;
-            this.lblServiceStartDate.Location = new System.Drawing.Point(7, 306);
+            this.lblServiceStartDate.Location = new System.Drawing.Point(7, 338);
             this.lblServiceStartDate.Name = "lblServiceStartDate";
             this.lblServiceStartDate.Size = new System.Drawing.Size(97, 13);
             this.lblServiceStartDate.TabIndex = 29;
@@ -260,7 +262,7 @@
             // lblDateAssigned
             // 
             this.lblDateAssigned.AutoSize = true;
-            this.lblDateAssigned.Location = new System.Drawing.Point(7, 338);
+            this.lblDateAssigned.Location = new System.Drawing.Point(7, 370);
             this.lblDateAssigned.Name = "lblDateAssigned";
             this.lblDateAssigned.Size = new System.Drawing.Size(82, 13);
             this.lblDateAssigned.TabIndex = 30;
@@ -268,7 +270,7 @@
             // 
             // dtServiceStartDate
             // 
-            this.dtServiceStartDate.Location = new System.Drawing.Point(110, 303);
+            this.dtServiceStartDate.Location = new System.Drawing.Point(110, 335);
             this.dtServiceStartDate.Name = "dtServiceStartDate";
             this.dtServiceStartDate.Size = new System.Drawing.Size(342, 20);
             this.dtServiceStartDate.TabIndex = 31;
@@ -276,17 +278,40 @@
             // 
             // dtDateAssigned
             // 
-            this.dtDateAssigned.Location = new System.Drawing.Point(96, 336);
+            this.dtDateAssigned.Location = new System.Drawing.Point(96, 368);
             this.dtDateAssigned.Name = "dtDateAssigned";
             this.dtDateAssigned.Size = new System.Drawing.Size(356, 20);
             this.dtDateAssigned.TabIndex = 32;
             this.dtDateAssigned.ValueChanged += new System.EventHandler(this.dtDateAssigned_ValueChanged);
             // 
+            // mtxtSTID
+            // 
+            this.mtxtSTID.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.mtxtSTID.Location = new System.Drawing.Point(98, 103);
+            this.mtxtSTID.Mask = "00000";
+            this.mtxtSTID.Name = "mtxtSTID";
+            this.mtxtSTID.Size = new System.Drawing.Size(354, 20);
+            this.mtxtSTID.TabIndex = 33;
+            this.mtxtSTID.TextChanged += new System.EventHandler(this.mtxtSTID_ValueChanged);
+            // 
+            // lblSTID
+            // 
+            this.lblSTID.AutoSize = true;
+            this.lblSTID.Location = new System.Drawing.Point(7, 106);
+            this.lblSTID.Name = "lblSTID";
+            this.lblSTID.Size = new System.Drawing.Size(90, 13);
+            this.lblSTID.TabIndex = 34;
+            this.lblSTID.Text = "Spray-Tek ID: ST";
+            // 
             // formViewDevice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(464, 374);
+            this.ClientSize = new System.Drawing.Size(464, 404);
+            this.Controls.Add(this.lblSTID);
+            this.Controls.Add(this.mtxtSTID);
             this.Controls.Add(this.dtDateAssigned);
             this.Controls.Add(this.dtServiceStartDate);
             this.Controls.Add(this.lblDateAssigned);
@@ -343,5 +368,7 @@
         private System.Windows.Forms.Label lblDateAssigned;
         private System.Windows.Forms.DateTimePicker dtServiceStartDate;
         private System.Windows.Forms.DateTimePicker dtDateAssigned;
+        private System.Windows.Forms.MaskedTextBox mtxtSTID;
+        private System.Windows.Forms.Label lblSTID;
     }
 }
